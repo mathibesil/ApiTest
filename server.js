@@ -4,8 +4,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Vehicle = require('./app/models/vehicle');
 var dbname = "profes";
-var user: "profes";
-var password: "pr0fes._app";
+var user = "profes";
+var password = "pr0fes._app";
 // Configure app for bodyParser()
 // lets us grab data from the body of POST
 app.use(bodyParser.urlencoded({extended: true}));
