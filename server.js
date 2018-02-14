@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 
-var MongoClient = require('mongodb').MongoClient
-  , Server = require('mongodb').Server;
+var MongoClient = require('mongoose').MongoClient
+  , Server = require('mongoose').Server;
 
 var mongoClient = new MongoClient(new Server('mongodb://profes:pr0fes._app@10.10.100.81', 57017));
 mongoClient.open(function(err, mongoClient) {
