@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // Connect to DB
-MongoClient.connect(dir, function(err, db) {
+mongoose.connect(dir, function(err, db) {
   if(!err) {
     console.log("We are connected");
   }
