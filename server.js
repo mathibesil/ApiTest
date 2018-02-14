@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Vehicle = require('./app/models/vehicle');
+var dir = "mongodb://10.10.100.81:57017/profes"
 var dbname = "profes";
 var user = "profes";
 var password = "pr0fes._app";
@@ -15,9 +16,10 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // Connect to DB
-var Db= new mongoose.Db( dbname, new mongoose.Server( 'mongodb://10.10.100.81', 57017, {}), {});
-Db.authenticate(user, password, function(err, res) {
-  // callback
+MongoClient.connect(dir, function(err, db) {
+  if(!err) {
+    console.log("We are connected");
+  }
 });
 //mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
 
