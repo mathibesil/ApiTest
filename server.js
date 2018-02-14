@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // Connect to DB
-var Db= new mongo.Db( dbname, new mongo.Server( 'mongodb://10.10.100.81', 57017, {}), {});
+var Db= new mongoose.Db( dbname, new mongo.Server( 'mongodb://10.10.100.81', 57017, {}), {});
 Db.authenticate(user, password, function(err, res) {
   // callback
 });
