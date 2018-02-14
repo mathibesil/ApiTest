@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // Connect to DB
-mongoose.connect('mongodb://[profes:pr0fes._app]10.10.100.81:57017/codealong');
+mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
 
 // API Routes
 var router = express.Router();
