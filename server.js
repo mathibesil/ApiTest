@@ -3,7 +3,9 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Vehicle = require('./app/models/vehicle');
-
+var dbname = "profes";
+var user: "profes";
+var password: "pr0fes._app";
 // Configure app for bodyParser()
 // lets us grab data from the body of POST
 app.use(bodyParser.urlencoded({extended: true}));
@@ -13,21 +15,10 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // Connect to DB
-
-const MongoClient = require('mongodb').MongoClient;
-const f = require('util').format;
-const assert = require('assert');
-
-// Connection URL
-const url = 'mongodb://profes:pr0fes._app@10.10.100.81:57017?authMechanism=SCRAM-SHA-1&authSource=profes';
-// Use connect method to connect to the Server
-MongoClient.connect(url, function(err, client) {
-  assert.equal(null, err);
-  console.log("Connected correctly to server");
-
-  client.close();
+var Db= new mongo.Db( dbname, new mongo.Server( 'mongodb://10.10.100.81', 57017, {}), {});
+Db.authenticate(user, password, function(err, res) {
+  // callback
 });
-
 //mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
 
 // API Routes
