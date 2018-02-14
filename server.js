@@ -13,7 +13,22 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // Connect to DB
-mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
+
+const MongoClient = require('mongodb').MongoClient;
+const f = require('util').format;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://profes:pr0fes._app@10.10.100.81:57017?authMechanism=SCRAM-SHA-1&authSource=profes';
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
+
+  client.close();
+});
+
+//mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
 
 // API Routes
 var router = express.Router();
