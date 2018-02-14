@@ -15,12 +15,23 @@ app.use(bodyParser.json());
 // Set up port for server to listen on
 var port = process.env.PORT || 3000;
 
-// Connect to DB
-MongoClient.connect(dir, function(err, db) {
-  if(!err) {
-    console.log("We are connected");
-  }
+
+var MongoClient = require('mongodb').MongoClient
+  , Server = require('mongodb').Server;
+
+var mongoClient = new MongoClient(new Server('mongodb://profes:pr0fes._app@10.10.100.81', 57017));
+mongoClient.open(function(err, mongoClient) {
+  var db1 = mongoClient.db("profes");
+
+  mongoClient.close();
 });
+
+// Connect to DB
+// MongoClient.connect(dir, function(err, db) {
+//   if(!err) {
+//     console.log("We are connected");
+//   }
+// });
 //mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
 
 // API Routes
