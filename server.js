@@ -3,8 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Vehicle = require('./app/models/vehicle');
-var dir = "mongodb://10.10.100.81:57017/profes"
-var dbname = "profes";
+var dir = "mongodb://10.10.100.81:57017"
+var db = "profes";
 var user = "profes";
 var password = "pr0fes._app";
 // Configure app for bodyParser()
@@ -15,23 +15,12 @@ app.use(bodyParser.json());
 // Set up port for server to listen on
 var port = process.env.PORT || 3000;
 
-
-var MongoClient = require('mongoose').MongoClient
-  , Server = require('mongoose').Server;
-
-var mongoClient = new MongoClient(new Server('mongodb://profes:pr0fes._app@10.10.100.81', 57017));
-mongoClient.open(function(err, mongoClient) {
-  var db1 = mongoClient.db("profes");
-
-  mongoClient.close();
-});
-
 // Connect to DB
-// MongoClient.connect(dir, function(err, db) {
-//   if(!err) {
-//     console.log("We are connected");
-//   }
-// });
+MongoClient.connect(dir, function(err, db) {
+  if(!err) {
+    console.log("We are connected");
+  }
+});
 //mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
 
 // API Routes
