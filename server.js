@@ -16,11 +16,15 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 // Connect to DB
-mongoose.connect(dir, function(err, db) {
-  if(!err) {
-    console.log("We are connected");
-  }
-});
+mongoose.Promise = global.Promise;
+
+mongoose.connect( "mongodb://profes:pr0fes._app@10.10.100.81:57017/profes'", { useMongoClient: true } );
+
+// mongoose.connect(dir, function(err, db) {
+//   if(!err) {
+//     console.log("We are connected");
+//   }
+// });
 //mongoose.connect('mongodb://profes:pr0fes._app@10.10.100.81:57017/profes');
 
 // API Routes
