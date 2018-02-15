@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Vehicle = require('./app/models/vehicle');
-var dir = "mongodb://10.10.100.81:57017"
+var dir = "mongodb://profes:pr0fes._app@10.10.100.81:57017"
 var db = "profes";
 var user = "profes";
 var password = "pr0fes._app";
@@ -37,7 +37,7 @@ app.use('/api', router);
 router.use(function(req, res, next) {
   console.log('FYI...There is some processing currently going down...');
   next();
-}); 
+});
 
 // Test Route
 router.get('/', function(req, res) {
