@@ -37,7 +37,7 @@ app.use('/api', router);
 router.use(function(req, res, next) {
   console.log('FYI...There is some processing currently going down...');
   next();
-});
+}); 
 
 // Test Route
 router.get('/', function(req, res) {
