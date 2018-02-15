@@ -18,7 +18,7 @@ var port = process.env.PORT || 3000;
 // Connect to DB
 mongoose.Promise = global.Promise;
 
-mongoose.connect( "mongodb://profes:pr0fes._app@10.10.100.81:57017/profes'", { useMongoClient: true } );
+mongoose.connect( "mongodb://profes@profes:pr0fes._app@10.10.100.81:57017/profes'", { useMongoClient: true } );
 
 // mongoose.connect(dir, function(err, db) {
 //   if(!err) {
